@@ -3,7 +3,6 @@
 
 This is not a guide nor tutorial but it serves as a reference on how to use basic functionalities on Kubernetes
 
-– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
 
 ## To use Web UI (dashboard)
 
@@ -18,7 +17,6 @@ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboar
 4. Run kubectl proxy
 5. It is now accessible via: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/.
 
-– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
 
 ## To create namespace and switch namespace
 
@@ -35,13 +33,11 @@ kubectl config set-context <context-name> --namespace=<namespace-name> \
 4. To view current context: kubectl config current-context
 5. To switch context: kubectl config use-context <context-name>
 
-– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
 
 ## To scale up / down deployment manually
 
 1. Set the number of replicas in the deployment yaml file and apply it
 
-– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
 
 ## To scale up / down deployment using Horizontal Pod Autoscaler 
 
