@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: myinvest
+        tier: backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myinvest
+        tier: backend
+    spec:
+      containers:
+      - env:
+        - name: WAIT_HOSTS
+          value: mysql:3306
+        image: wilsontanwm/goinvest:0.1
+        name: backend
+        ports:
+        - containerPort: 3000
+        resources: {}
+      restartPolicy: Always
+status: {}

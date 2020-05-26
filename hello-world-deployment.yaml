@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test
+    tier: hello-world
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: test
+        tier: hello-world
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test
+        tier: hello-world
+    spec:
+      containers:
+      - image: hello-world:latest
+        name: hello-world
+        imagePullPolicy: Always
+      restartPolicy: Always
+status: {}

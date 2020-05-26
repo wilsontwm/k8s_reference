@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: adminer
+  name: adminer
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: myinvest
+        tier: adminer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myinvest
+        tier: adminer
+    spec:
+      containers:
+      - env:
+        - name: ADMINER_DEFAULT_SERVER
+          value: mysql
+        image: adminer:latest
+        name: adminer
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: mysql
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: myinvest
+        tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myinvest
+        tier: mysql
+    spec:
+      containers:
+      - args:
+        - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_DATABASE
+          value: "database_name"
+        - name: MYSQL_PASSWORD
+          value: "user_password"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root_password"
+        - name: MYSQL_USER
+          value: "user_name"
+        image: mysql:latest
+        name: mysql
+        ports:
+        - containerPort: 3306
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: goinvest-volume
+      restartPolicy: Always
+      volumes:
+      - name: goinvest-volume
+        persistentVolumeClaim:
+          claimName: goinvest-volume
+status: {}

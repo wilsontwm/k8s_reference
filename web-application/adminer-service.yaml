@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: adminer
+  name: adminer
+spec:
+  ports:
+  - name: "8080"
+    nodePort: 31220
+    port: 8080
+    protocol: TCP
+  selector:
+    app: myinvest
+    tier: adminer
+  type: NodePort
+status:
+  loadBalancer: {}

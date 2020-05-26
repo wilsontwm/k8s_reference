@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: frontend
+  name: frontend
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    nodePort: 32002
+  type: NodePort
+  selector:
+    app: myinvest
+    tier: frontend
+status:
+  loadBalancer: {}

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myinvest
+    tier: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: myinvest
+        tier: frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myinvest
+        tier: frontend
+    spec:
+      containers:
+      - image: wilsontanwm/vueinvest:0.4
+        name: frontend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}
