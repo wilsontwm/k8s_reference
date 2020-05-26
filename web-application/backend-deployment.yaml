@@ -28,6 +28,10 @@ spec:
         name: backend
         ports:
         - containerPort: 3000
-        resources: {}
+        resources: 
+          limits:
+            cpu: 100m
+          requests:
+            cpu: 50m
       restartPolicy: Always
 status: {}

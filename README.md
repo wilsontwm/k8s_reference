@@ -5,7 +5,7 @@ This is not a guide nor tutorial but it serves as a reference on how to use basi
 
 – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
 
-## To use Web UI (dashboarD)
+## To use Web UI (dashboard)
 
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
@@ -34,3 +34,19 @@ kubectl config set-context <context-name> --namespace=<namespace-name> \
 3. To view context: kubectl config view
 4. To view current context: kubectl config current-context
 5. To switch context: kubectl config use-context <context-name>
+
+– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+
+## To scale up / down deployment manually
+
+1. Set the number of replicas in the deployment yaml file and apply it
+
+– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+
+## To scale up / down deployment using Horizontal Pod Autoscaler 
+
+1. Run the following command. The commmand will create a HPA which will attempt to maintain an average CPU utilization across all pods at 50% with a min of 1 pod to max of 10 pods.
+```
+kubectl autoscale deployment <deployment_name> --cpu-percent=50 --min=1 --max=10
+```
+
