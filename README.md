@@ -25,13 +25,12 @@ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboar
 Namespace is like subgroup in a cluster. It can be used for different groups or projects in the same cluster
 
 1. Refer to /namespace/create-namespace.yaml
-2. To create context to point to the namespace like following:
+2. To create context to point to the namespace like following (Reference: https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/):
 ```
 kubectl config set-context <context-name> --namespace=<namespace-name> \
   --cluster=<cluster-name> \
   --user=<user-group>
 ```
-  For the above, refer https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/
 3. To view context: kubectl config view
 4. To view current context: kubectl config current-context
 5. To switch context: kubectl config use-context <context-name>
