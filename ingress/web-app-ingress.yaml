@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: web-app-ingress
+  namespace: default
+  annotations:
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /adminer
+        backend:
+          serviceName: adminer
+          servicePort: 8080
+      - path: /api
+        backend:
+          serviceName: backend
+          servicePort: 3000      
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80

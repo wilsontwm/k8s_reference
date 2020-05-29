@@ -46,3 +46,15 @@ kubectl config set-context <context-name> --namespace=<namespace-name> \
 kubectl autoscale deployment <deployment_name> --cpu-percent=50 --min=1 --max=10
 ```
 
+## Using Ingress to expose HTTP and HTTPS routes outside cluster to services within cluster
+
+1. Enable the NGINX Ingress controller on Minikube
+```
+minikube addons enable ingress
+``` 
+2. Set the services to be using ClusterIP
+3. Apply the Ingress yaml file (Refer to folder /ingress)
+```
+kubectl apply -f web-app-ingress.yaml
+```
+4. Now you can access the service via the path
