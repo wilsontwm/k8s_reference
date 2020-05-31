@@ -59,7 +59,7 @@ kubectl apply -f web-app-ingress.yaml
 ```
 4. Now you can access the service via the path
 
-## Using Secret
+## Using Secret and ConfigMap
 
-1. Create a Secret resource (Refer to /secrets/db-secret.yaml)
-2. Set the environment variable to be using key/value pair from the Secret resource (Refer to /secrets/mysql-deployment.yaml)
+1. Create a Secret resource (refer to /secrets/db-secret.yaml) and a ConfigMap (refer to /secrets/db-config.yaml)
+2. Set the environment variable to be using key/value pair from the Secret resource or ConfigMap resource (refer to /secrets/mysql-deployment.yaml)
