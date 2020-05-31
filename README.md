@@ -58,3 +58,8 @@ minikube addons enable ingress
 kubectl apply -f web-app-ingress.yaml
 ```
 4. Now you can access the service via the path
+
+## Using Secret
+
+1. Create a Secret resource (Refer to /secrets/db-secret.yaml)
+2. Set the environment variable to be using key/value pair from the Secret resource (Refer to /secrets/mysql-deployment.yaml)
